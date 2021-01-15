@@ -14,8 +14,10 @@ function loop(){
       element.classList.remove('is-visible');
     }
   });
-
+  
+  window.setTimeout(mapTransition, 1000/60)
   scroll(loop);
+
 }
 
 loop();
@@ -35,3 +37,20 @@ function isElementInViewport(el){
     (rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
   );
 }
+
+
+// respond to others visibility
+function mapTransition() {
+ if(document.querySelectorAll('.mn-header')[0].classList[2] == 'is-visible') {
+  document.querySelector('.map').classList.add('not-visible');
+  console.log('True')
+  } else {
+    document.querySelector('.map').classList.remove('not-visible'); 
+    console.log('False');
+  }
+  // scroll(mapTransition)
+}
+
+// function test(callback){
+//   window.setTimeout(callback, 1000/60)
+// };

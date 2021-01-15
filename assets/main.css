@@ -9,18 +9,16 @@ article, aside, footer, header, nav, section, figcaption, figure, main {
   display: block;
 }
 
-header {
-  height: 80vh;
-  position: relative;
-}
 h1 {
   font-size: 8rem;
-  left: 50%;
+  /* left: 50%;
   width: 5em;
-  z-index: 10;
+  z-index: 10; */
+  margin: 0em;
 }
 h2 {
   font-size: 2.4rem;
+  margin:0em;
 }
 .map {
   height:100vh;
@@ -29,12 +27,14 @@ h2 {
   overflow-x: hidden;
   position: absolute;
   z-index: 1;
-  transform: scale(4) translate(70px, 100px);/* chequear q path es cual */
+  transform: scale(4) translate(70px, 100px);/* chequear porque cuando achico pantalla hay margen blanco */
   /* animation: zoom-out 2s linear; */
-  transition: transform 1s ease-out;
+  /* transition: transform 1s ease-out; */
 }
-.map.is-visible {
+.map.not-visible {
   /* transform: scale(4); */
+  transition: transform 1s ease-out;
+  transform: scale(2) translate(70px, 100px);
   overflow-x: hidden;
 }
 .map img {
@@ -52,24 +52,37 @@ h2 {
   z-index: 2;
 }
 
-header {
+.mn-initial {
+  height:100vh;
+}
+.mn-text-group {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: start;
+  justify-content: center;
+}
+.mn-header {
+  /* height: 5vh; */
+  position: relative;
+  margin: 0em 2em;
+  z-index: 3;
   opacity: 0;
   -webkit-transition: opacity .5s .25s ease-out;
   transition: opacity .5s .25s ease-out;
 }
 
 .test {
-  max-width: 740px;
-  margin: 4em auto;
-  width: 80%;
-  position: absolute;
+  max-width: 25vw;
+  margin: 2em 2em; /* verify accuracy of measurements */
+  width: 15%;
+  position: relative;
   opacity: 0;
   z-index: 3;
 }
 
-header.is-visible {
+.mn-header.is-visible {
   opacity: 1;
-  z-index: 3;
 }
 
 .test.is-visible {
