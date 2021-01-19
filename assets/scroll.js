@@ -39,18 +39,19 @@ function isElementInViewport(el){
 }
 
 
-// respond to others visibility
+// respond to other's visibility
 function mapTransition() {
- if(document.querySelectorAll('.mn-header')[0].classList[2] == 'is-visible') {
+ if(document.querySelectorAll('.mn-text-group')[0].classList[2] == 'is-visible') {
   document.querySelector('.map').classList.add('not-visible');
   console.log('True')
-  } else {
+  } else if (document.querySelectorAll('.mn-text-group')[0].classList[2] !== 'is-visible') {
     document.querySelector('.map').classList.remove('not-visible'); 
     console.log('False');
-  }
-  // scroll(mapTransition)
+  } 
+  /* else if 
+  / How to do the map animation for the third section of the page?
+  / - If the other two are not-visible then do animation?
+  */
+ 
 }
 
-// function test(callback){
-//   window.setTimeout(callback, 1000/60)
-// };
